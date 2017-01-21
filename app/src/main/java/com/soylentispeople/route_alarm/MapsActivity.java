@@ -154,6 +154,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return true;
     }
 
+
     public void animate() {
         LinearLayout dialog = (LinearLayout) findViewById(R.id.linearlayout);
         dialog.setVisibility(LinearLayout.VISIBLE);
