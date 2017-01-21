@@ -1,61 +1,58 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#6697FF"
-    android:orientation="vertical"
-    tools:context=".MapsActivity">
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        tools:context="com.soylentispeople.routealarm.MapsActivity" />
+        android:orientation="vertical"
+        android:background="#6697FF">
 
-
-    <LinearLayout
-        android:id="@+id/linearlayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:orientation="vertical">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="#B1BCBE"></FrameLayout>
-
-        <EditText
-            android:id="@+id/departure_location"
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="25dp"
-            android:layout_weight="1"
-            android:background="@drawable/corner_back"
-            android:hint="departure"
-            android:paddingLeft="10dp" />
+            tools:context="com.soylentispeople.routealarm.MapsActivity"
+            android:layout_weight="1"/>
 
-        <EditText
-            android:id="@+id/arrival_location"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="25dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/corner_back"
-            android:hint="destination"
-            android:paddingLeft="10dp" />
+            android:layout_weight="3"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#B1BCBE"></FrameLayout>
+
+            <EditText
+                android:id="@+id/departure_location"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="25dp"
+                android:hint="departure"
+                android:paddingLeft="10dp"
+                android:background="@drawable/corner_back"/>
+            <EditText
+                android:id="@+id/arrival_location"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="25dp"
+                android:hint="destination"
+                android:paddingLeft="10dp"
+                android:background="@drawable/corner_back"/>
+
+
+        </LinearLayout>
 
 
     </LinearLayout>
-
-
-</LinearLayout>
