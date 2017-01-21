@@ -28,11 +28,13 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 //for the push
 
@@ -135,6 +137,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public boolean onSingleTapUp(MotionEvent motionEvent) {
+        Toast.makeText(this, "k", Toast.LENGTH_SHORT).show();
         return false;
     }
 
@@ -150,6 +153,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float velocityX, float velocityY) {
+        Log.d("gogod", "ucsc");
         animate();
         return true;
     }
@@ -177,6 +181,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             }
         });
+
+        animation.start();
+
         dialog.setAnimation(null);
         Log.i("animate", "End Animation");
     }

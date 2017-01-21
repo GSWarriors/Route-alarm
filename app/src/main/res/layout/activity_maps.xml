@@ -16,6 +16,7 @@
 
 
         <LinearLayout
+            android:id="@+id/linearlayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
@@ -26,7 +27,7 @@
                 android:layout_height="5dp"
                 android:background="#B1BCBE"></FrameLayout>
 
-            <EditText
+            <com.soylentispeople.route_alarm.CEditText
                 android:id="@+id/departure_location"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
@@ -38,7 +39,7 @@
                 android:hint="departure"
                 android:paddingLeft="10dp"
                 android:background="@drawable/corner_back"/>
-            <EditText
+            <com.soylentispeople.route_alarm.CEditText
                 android:id="@+id/arrival_location"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
