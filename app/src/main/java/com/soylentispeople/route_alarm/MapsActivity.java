@@ -2,14 +2,23 @@ package com.soylentispeople.route_alarm;
 
 import android.*;
 import android.Manifest;
+import android.animation.Animator;
+import android.animation.TimeInterpolator;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.view.GestureDetectorCompat;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
@@ -22,22 +31,22 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 //for the push
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GestureDetector.OnGestureListener {
 
     private GoogleMap mMap;
     private GoogleApiClient apiClient;
     private Location userLocation;
+    private GestureDetectorCompat mDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-
+        mDetector = new GestureDetectorCompat(this, this);
         apiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addApi(LocationServices.API)
                 .build();
-
 
 
     }
@@ -75,12 +84,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, 0);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
         }
 
         userLocation = LocationServices.FusedLocationApi.getLastLocation(apiClient);
-        if(userLocation != null) {
-            EditText departureText = (EditText)findViewById(R.id.departure_location);
+        if (userLocation != null) {
+            EditText departureText = (EditText) findViewById(R.id.departure_location);
 
             departureText.setText(userLocation.getLatitude() + ", " + userLocation.getLongitude());
         }
@@ -97,14 +106,71 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     @Override
-    public void onStart(){
+    public void onStart() {
         apiClient.connect();
         super.onStart();
     }
 
     @Override
-    public void onStop(){
+    public void onStop() {
         apiClient.disconnect();
         super.onStop();
+    }
+
+    @Override
+    public boolean onDown(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float velocityX, float velocityY) {
+        animate();
+        return true;
+    }
+
+    public void animate() {
+        LinearLayout dialog = (LinearLayout) findViewById(R.id.linearlayout);
+        dialog.setVisibility(LinearLayout.VISIBLE);
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_up);
+        animation.reset();
+        //  animation.setFillAfter(true);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        dialog.setAnimation(null);
+        Log.i("animate", "End Animation");
     }
 }
