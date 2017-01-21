@@ -19,6 +19,11 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import android.content.Context;
+import android.graphics.Typeface;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.widget.TextView;
 
 //for the push
 
@@ -30,6 +35,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        TextView tx = (TextView)findViewById(R.id.textView);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Raleway-Light.ttf");
+        tx.setTypeface(custom_font);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
