@@ -50,5 +50,6 @@ public class AlarmSettingActivity extends Activity {
                     + origin.latitude + "," + origin.longitude + "&destination=" + destinationAddress
                     + "&mode=driving&arrival_time=" + (seconds);
         }
-
+        return 1000;
+    }
 }

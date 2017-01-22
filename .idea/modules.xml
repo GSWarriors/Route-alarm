@@ -4,10 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RouteAlarm.iml" filepath="$PROJECT_DIR$/RouteAlarm.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/route-alarm.iml" filepath="$PROJECT_DIR$/route-alarm.iml" />
       <module fileurl="file://$PROJECT_DIR$/route-alarm.iml" filepath="$PROJECT_DIR$/route-alarm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/route-alarm-finalis-funkle.iml" filepath="$PROJECT_DIR$/route-alarm-finalis-funkle.iml" />
     </modules>
   </component>
 </project>
