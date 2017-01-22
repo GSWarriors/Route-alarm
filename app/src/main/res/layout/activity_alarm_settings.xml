@@ -4,17 +4,49 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:background="#6697FF">
+
+        <com.soylentispeople.route_alarm.CEditText
+            android:id="@+id/departure_location"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="25dp"
+            android:hint="departure"
+            android:paddingLeft="10dp"
+            android:background="@drawable/corner_back"
+            android:inputType="text"/>
+        <com.soylentispeople.route_alarm.CEditText
+            android:id="@+id/arrival_location"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="25dp"
+            android:hint="destination"
+            android:paddingLeft="10dp"
+            android:background="@drawable/corner_back"
+            android:inputType="text"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="vertical">
-
-        <TimePicker
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/alarmTimePicker"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
 
         <com.soylentispeople.route_alarm.CEditText
             android:id="@+id/time_to_arrive"
@@ -25,10 +57,10 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="25dp"
-            android:hint="I would like to arrive at (hh:mm)"
+            android:hint="time to arrive (hh:mm)"
             android:paddingLeft="10dp"
             android:background="@drawable/corner_white"
-            android:inputType="datetime"
+            android:inputType="time"
             android:textSize="30dp"
             android:textAlignment="center"/>
         <com.soylentispeople.route_alarm.CEditText
@@ -40,12 +72,11 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="25dp"
-            android:hint="It'll take me "
+            android:hint="time to get ready (min)"
             android:paddingLeft="10dp"
             android:background="@drawable/corner_white"
             android:imeOptions="actionDone"
-            android:inputType="datetime"
-            android:hint2="minutes to get ready "
+            android:inputType="time"
             android:textSize="30dp"
             android:textAlignment="center"/>
 
@@ -57,15 +88,6 @@
             android:textSize="30dp"
             android:layout_marginLeft="10dp"
             />
-
-        <ToggleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Alarm On/Off"
-            android:id="@+id/alarmToggle"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/alarmTimePicker"
-            android:onClick="onToggleClicked" />
 
         <Button
             android:id="@+id/set_alarm"
