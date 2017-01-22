@@ -9,6 +9,13 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <TimePicker
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/alarmTimePicker"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
         <com.soylentispeople.route_alarm.CEditText
             android:id="@+id/time_to_arrive"
             android:layout_weight="1"
@@ -50,6 +57,15 @@
             android:textSize="30dp"
             android:layout_marginLeft="10dp"
             />
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alarm On/Off"
+            android:id="@+id/alarmToggle"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/alarmTimePicker"
+            android:onClick="onToggleClicked" />
 
         <Button
             android:id="@+id/set_alarm"
