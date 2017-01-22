@@ -4,45 +4,6 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/linearlayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
-        android:orientation="vertical"
-        android:background="#6697FF">
-
-        <com.soylentispeople.route_alarm.CEditText
-            android:id="@+id/departure_location"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="25dp"
-            android:hint="departure"
-            android:paddingLeft="10dp"
-            android:background="@drawable/corner_back"
-            android:inputType="text"/>
-        <com.soylentispeople.route_alarm.CEditText
-            android:id="@+id/arrival_location"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="25dp"
-            android:hint="destination"
-            android:paddingLeft="10dp"
-            android:background="@drawable/corner_back"
-            android:inputType="text"/>
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -57,10 +18,10 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="25dp"
-            android:hint="time to arrive (hh:mm)"
+            android:hint="I would like to arrive at (hh:mm)"
             android:paddingLeft="10dp"
             android:background="@drawable/corner_white"
-            android:inputType="time"
+            android:inputType="datetime"
             android:textSize="30dp"
             android:textAlignment="center"/>
         <com.soylentispeople.route_alarm.CEditText
@@ -72,11 +33,12 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="25dp"
-            android:hint="time to get ready (min)"
+            android:hint="It'll take me "
             android:paddingLeft="10dp"
             android:background="@drawable/corner_white"
             android:imeOptions="actionDone"
-            android:inputType="time"
+            android:inputType="datetime"
+            android:hint2="minutes to get ready "
             android:textSize="30dp"
             android:textAlignment="center"/>
 

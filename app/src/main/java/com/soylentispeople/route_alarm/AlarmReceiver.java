@@ -5,7 +5,9 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.os.Bundle;
+
 
 /**
  * Created by krish98sai on 1/21/2017.
@@ -24,11 +26,12 @@ public class AlarmReceiver extends Activity {
         alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getApplicationContext(), AlarmReceiver.class);
         alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, 0);
+        Calendar calendar = Calendar.getInstance();
 
         if(repeat) {
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, /*time of start*/AlarmManager.INTERVAL_DAY, AlarmManager.INTERVAL_DAY, alarmIntent);
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, /*time of start*/ calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmIntent);
         } else {
-            alarmManager.set(AlarmManager.RTC_WAKEUP, /*trigger millis*/ AlarmManager.RTC, alarmIntent);
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, /*trigger millis*/ calendar.getTimeInMillis(), alarmIntent);
         }
     }
 }
