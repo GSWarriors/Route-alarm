@@ -26,9 +26,9 @@ public class AlarmReceiver extends Activity {
         alarmIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, 0);
 
         if(repeat) {
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, /*time of start*/, AlarmManager.INTERVAL_DAY, alarmIntent);
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, /*time of start*/AlarmManager.INTERVAL_DAY, AlarmManager.INTERVAL_DAY, alarmIntent);
         } else {
-            alarmManager.set(AlarmManager.RTC_WAKEUP, /*trigger millis*/, alarmIntent);
+            alarmManager.set(AlarmManager.RTC_WAKEUP, /*trigger millis*/ AlarmManager.RTC, alarmIntent);
         }
     }
 }

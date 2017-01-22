@@ -39,13 +39,15 @@ public class AlarmSettingActivity extends Activity {
 
     @SuppressLint("NewApi")
     public double getTravelTime(LatLng origin, String destinationAddress) {
-        long seconds = (Calendar.getInstance().getTime().getTime())/1000;
+        long seconds = (Calendar.getInstance().getTime().getTime()) / 1000;
         Calendar calendar = Calendar.getInstance();
-        if((EditText)findViewById(R.id.time_to_arrive).get)
-        destinationAddress = destinationAddress.replaceAll(" ", "%20");
-        String url = "http://maps.googleapis.com/maps/api/directions/json?origin="
-                + origin.latitude + "," + origin.longitude + "&destination=" + destinationAddress
-                + "&mode=driving&arrival_time=" + (seconds
+        if (true) {
+            destinationAddress = destinationAddress.replaceAll(" ", "%20");
+            String url = "http://maps.googleapis.com/maps/api/direct    ions/json?origin="
+                    + origin.latitude + "," + origin.longitude + "&destination=" + destinationAddress
+                    + "&mode=driving&arrival_time=" + (seconds);
+        }
+        return seconds;
     }
 
 }
