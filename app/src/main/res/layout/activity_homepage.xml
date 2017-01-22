@@ -53,4 +53,10 @@
 
     </LinearLayout>
 
+    <View
+        android:id="@+id/myRectangleView"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="@drawable/create_alarm_rectangle"/>
+
 </LinearLayout>
