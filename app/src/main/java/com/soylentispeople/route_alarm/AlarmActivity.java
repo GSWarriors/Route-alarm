@@ -40,7 +40,6 @@ public class AlarmActivity extends Activity {
         setContentView(R.layout.activity_alarm_settings);
         alarmTimePicker = (TimePicker) findViewById(R.id.alarmTimePicker);
         alarmTextView = (TextView) findViewById(R.id.set_alarm);
-        ToggleButton alarmToggle = (ToggleButton) findViewById(R.id.alarmToggle);
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
     }
 

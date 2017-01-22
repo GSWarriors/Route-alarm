@@ -15,6 +15,9 @@ import android.widget.EditText;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+
 /**
  * Created by krish98sai on 1/21/2017.
  */
@@ -47,7 +50,5 @@ public class AlarmSettingActivity extends Activity {
                     + origin.latitude + "," + origin.longitude + "&destination=" + destinationAddress
                     + "&mode=driving&arrival_time=" + (seconds);
         }
-        return seconds;
-    }
 
 }
