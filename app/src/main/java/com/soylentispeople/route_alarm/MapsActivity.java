@@ -4,7 +4,9 @@ import android.*;
 import android.Manifest;
 import android.animation.Animator;
 import android.animation.TimeInterpolator;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.gesture.Gesture;
 import android.location.Location;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -13,10 +15,12 @@ import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -55,10 +59,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .addConnectionCallbacks(this)
                 .addApi(LocationServices.API)
                 .build();
+        ((EditText)findViewById(R.id.arrival_location)).setOnEditorActionListener(new EditText.OnEditorActionListener() {
+           @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event){
+               if(actionId == EditorInfo.IME_ACTION_DONE){
 
+                   startNextActivity();
+
+
+                   return true;
+               }
+               return false;
+           }
+        });
 
     }
 
+    private void startNextActivity(){
+        Intent intent = new Intent(this, AlarmSettingActivity.class);
+        intent.putExtra("departure", ((EditText)findViewById(R.id.departure_location)).getText().toString());
+        intent.putExtra("arrival", ((EditText)findViewById(R.id.arrival_location)).getText().toString());
+
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent mv) {
+        mDetector.onTouchEvent(mv);
+        return super.onTouchEvent(mv);
+    }
 
     /**
      * Manipulates the map once available.
@@ -160,7 +189,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     public void animate() {
-        LinearLayout dialog = (LinearLayout) findViewById(R.id.linearlayout);
+        LinearLayout dialog = (LinearLayout) findViewById(R.id.first);
         dialog.setVisibility(LinearLayout.VISIBLE);
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.slide_up);
         animation.reset();
